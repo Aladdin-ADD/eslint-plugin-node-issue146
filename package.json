@@ -1,0 +1,53 @@
+{
+  "name": "@tplss/node",
+  "version": "0.0.0",
+  "author": "薛定谔的猫 <hh_2013@foxmail.com>",
+  "description": "Node.js boilerplate",
+  "main": "./lib/index.js",
+  "bin": "bin/cli.js",
+  "scripts": {
+    "lint": "eslint lib bin tests",
+    "test": "mocha tests/**/*"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib",
+    "bin/*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-ts": "^2.0.0-alpha.1",
+    "husky": "^1.3.0",
+    "mocha": "^5.2.0"
+  },
+  "keywords": [
+    "Node.js",
+    "boilerplate"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "ts"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "tests/"
+        ],
+        "env": {
+          "mocha": true
+        }
+      }
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint -- --fix && git add ."
+    }
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  }
+}
